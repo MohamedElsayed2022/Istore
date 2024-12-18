@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
         className="my-2"
         style={{
           width: "100%",
-          height: "407px",
+          height: "425px",
           borderRadius: "8px",
           border: "none",
           backgroundColor: "#ffff",
@@ -28,13 +28,14 @@ const ProductCard = ({ product }) => {
         <Card.Body>
           <Card.Title>
             <div
-              className="card-title text-truncate"
+              className="card-title"
               style={{
-                fontSize: "1.1rem",
-                fontWeight: "bold",
+                fontSize: "1.6rem",
+                fontWeight: "400",
                 color: "#333",
+                lineHeight: "1.2",  
               }}
-              title={product.name}
+              title={product.name}      
             >
               {product.name}
             </div>
@@ -47,7 +48,6 @@ const ProductCard = ({ product }) => {
                 fontSize: "0.9rem",
                 color: "rgba(0, 0, 0, 0.6)",
                 overflow: "hidden",
-                
               }}
             >
               {product.description}
@@ -55,12 +55,15 @@ const ProductCard = ({ product }) => {
           </Card.Text>
 
           <Card.Text className="d-flex justify-content-between align-items-center">
-            <div className="d-flex align-items-center " style={{marginTop:"-17px"}}>
+            <div
+              className="d-flex align-items-center"
+              style={{ marginTop: "-12px" }}
+            >
               <div
                 style={{
                   fontSize: "1.2rem",
                   fontWeight: "bold",
-                  color: "#ff5722",
+                  color: "#b12704",
                 }}
               >
                 {product.price}
@@ -68,7 +71,7 @@ const ProductCard = ({ product }) => {
               <div
                 className="mx-1"
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "1.2rem",
                   color: "#555",
                 }}
               >
@@ -83,19 +86,3 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
-
-{
-  /* <div className="card h-100 text-center">
-        <img
-          src={product.image}
-          className="card-img-top"
-          alt={product.name}
-          style={{ height: '200px', objectFit: 'cover' }}
-        />
-        <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
-          <p className="card-text">{product.description}</p>
-          <h6>${product.price}</h6>
-        </div>
-      </div> */
-}

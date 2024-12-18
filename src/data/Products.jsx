@@ -1,4 +1,3 @@
-import img2 from "../assets/shirt2.jpg";
 import elec1 from "../assets/elec1.webp";
 import elec2 from "../assets/elec2.webp";
 import elec3 from "../assets/elec3.webp";
