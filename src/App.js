@@ -37,7 +37,7 @@ const App = () => {
   };
 
   //pagination 
-  const items = 5;
+  const items = 6;
   const [current , setCurrent] = useState(3)
   const numPage = Math.ceil(products.length / items)
 
@@ -54,9 +54,9 @@ const App = () => {
 
   return (
     <div>
-      <Header />
+      <Header onSearch={handleSearch} />
       <div className="container">
-        <SearchBar onSearch={handleSearch} />
+        {/* <SearchBar onSearch={handleSearch} /> */}
         <Filter onFilter={handleFilter} />
         <ProductList products={DataPerPage} />
         <Pagination onChange={onChange} pageCount={numPage}/>

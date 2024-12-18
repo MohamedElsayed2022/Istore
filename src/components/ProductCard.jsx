@@ -1,10 +1,91 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import React from "react";
+import { Card } from "react-bootstrap";
 
 const ProductCard = ({ product }) => {
   return (
     <div className="col-md-4 mb-4">
-      {/* <div className="card h-100 text-center">
+      <Card
+        className="my-2"
+        style={{
+          width: "100%",
+          height: "407px",
+          borderRadius: "8px",
+          border: "none",
+          backgroundColor: "#ffff",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <Card.Img
+          style={{
+            height: "270px",
+            width: "100%",
+            borderTopLeftRadius: "8px",
+            borderTopRightRadius: "8px",
+          }}
+          src={product.image}
+        />
+
+        <Card.Body>
+          <Card.Title>
+            <div
+              className="card-title text-truncate"
+              style={{
+                fontSize: "1.1rem",
+                fontWeight: "bold",
+                color: "#333",
+              }}
+              title={product.name}
+            >
+              {product.name}
+            </div>
+          </Card.Title>
+
+          <Card.Text>
+            <div
+              className="card-description mb-3"
+              style={{
+                fontSize: "0.9rem",
+                color: "rgba(0, 0, 0, 0.6)",
+                overflow: "hidden",
+                
+              }}
+            >
+              {product.description}
+            </div>
+          </Card.Text>
+
+          <Card.Text className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center " style={{marginTop:"-17px"}}>
+              <div
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  color: "#ff5722",
+                }}
+              >
+                {product.price}
+              </div>
+              <div
+                className="mx-1"
+                style={{
+                  fontSize: "1.5rem",
+                  color: "#555",
+                }}
+              >
+                $
+              </div>
+            </div>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
+  );
+};
+
+export default ProductCard;
+
+{
+  /* <div className="card h-100 text-center">
         <img
           src={product.image}
           className="card-img-top"
@@ -16,41 +97,5 @@ const ProductCard = ({ product }) => {
           <p className="card-text">{product.description}</p>
           <h6>${product.price}</h6>
         </div>
-      </div> */}
- <Card
-        className="my-2"
-        style={{
-          width: "100%",
-          height: "380px", // زدت الطول قليلاً لتوفير مساحة للوصف
-          borderRadius: "8px",
-          border: "none",
-          backgroundColor: "#ffff",
-          boxShadow: "0 2px 2px 0 rgba(151, 151, 151, .5)",
-        }}
-      >
-        <Card.Img style={{ height: "228px", width: "100%" }} src={product.image} />
-
-        <Card.Body>
-          <Card.Title>
-            <div className="card-title">{product.name}</div>
-          </Card.Title>
-          <Card.Text>
-            <div className="card-description mb-2" style={{ fontSize: "0.9rem", color: "#555" }}>
-              {product.description}
-            </div>
-          </Card.Text>
-          <Card.Text className="d-flex justify-content-between align-items-center">
-            <div className="d-flex">
-              <div className="card-price">
-                <div>{product.price}</div>
-              </div>
-              <div className="card-currency mx-1">$</div>
-            </div>
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </div>
-  );
-};
-
-export default ProductCard;
+      </div> */
+}
