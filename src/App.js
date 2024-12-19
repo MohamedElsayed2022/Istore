@@ -1,29 +1,20 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import Filter from './components/Filter';
-import ProductList from './components/ProductList';
-import products from './data/Products';
-import Pagination from './utils/Pagination';
+import React, { useState } from "react";
+import Header from "./components/utils/Header";
+import Filter from "./components/Home/Filter";
+import ProductList from "./components/Home/ProductList";
+import products from "./data/Products";
+import Pagination from "./components/utils/Pagination";
 
 const App = () => {
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [searchTerm, setSearchTerm] = useState('');
- 
-
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-    filterProducts(term, null);
-  };
-
-  const handleFilter = (category) => {
-    filterProducts(searchTerm, category);
-  };
+  const [searchTerm, setSearchTerm] = useState("");
+  const [current, setCurrent] = useState(1);
+  const itemsPerPage = 6;
 
   const filterProducts = (term, category) => {
     let filtered = products;
 
-    if (category && category !== 'All') {
+    if (category && category !== "All") {
       filtered = filtered.filter((product) => product.category === category);
     }
 
@@ -34,32 +25,34 @@ const App = () => {
     }
 
     setFilteredProducts(filtered);
+    setCurrent(1);
   };
 
-  //pagination 
-  const items = 6;
-  const [current , setCurrent] = useState(3)
-  const numPage = Math.ceil(products.length / items)
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    filterProducts(term, null);
+  };
 
-  const startIndex = (current - 1) * items
-  const endIndex = startIndex + items
+  const handleFilter = (category) => {
+    filterProducts(searchTerm, category);
+  };
 
-  const DataPerPage  = filteredProducts.slice(startIndex , endIndex)
+  const numPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const startIndex = (current - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = filteredProducts.slice(startIndex, endIndex);
 
   const onChange = (pageNumber) => {
     setCurrent(pageNumber);
   };
-  
-
 
   return (
     <div>
       <Header onSearch={handleSearch} />
       <div className="container">
-        {/* <SearchBar onSearch={handleSearch} /> */}
         <Filter onFilter={handleFilter} />
-        <ProductList products={DataPerPage} />
-        <Pagination onChange={onChange} pageCount={numPage}/>
+        <ProductList products={currentData} />
+        <Pagination onChange={onChange} pageCount={numPages} />
       </div>
     </div>
   );

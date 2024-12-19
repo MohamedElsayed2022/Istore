@@ -7,7 +7,7 @@ export default function Pagination({ pageCount, onChange }) {
           previousLabel={"Previous"}
           nextLabel={"Next"}
           pageCount={pageCount}
-          onPageChange={(event) => onChange(event.selected + 1)} // `event.selected` gives the zero-based index
+          onPageChange={(event) => onChange(event.selected + 1)} 
           containerClassName={"paginationBttns"}
           previousLinkClassName={"previousBttn"}
           nextLinkClassName={"nextBttn"}

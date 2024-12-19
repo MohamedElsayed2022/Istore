@@ -1,3 +1,4 @@
+/* Pagination  */
 .paginationBttns {
   display: flex;
   justify-content: center;
@@ -49,4 +50,53 @@
 .paginationActive a {
   background-color: #000; 
   color: #fff !important; 
+}
+/* Product Card  */
+
+.Product-card {
+  width: 100%;
+  height: 425px;
+  border-radius: 8px;
+  background-color: #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.Product-card img {
+  height: 270px;
+  width: 100%;
+  padding: 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.2;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  margin-top: -12px;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #b12704;
+}
+
+.currency {
+  font-size: 1.2rem;
+  color: #555;
+  margin-left: 0.25rem;
 }
